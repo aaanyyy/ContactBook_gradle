@@ -31,7 +31,7 @@ public class CsvFileContactService extends InFileContactService {
                         String arr[]=str.split(";");
                         if(arr.length==3)
                         {
-                            cash.add(new Contact(Integer.getInteger(arr[0]),arr[1],arr[2]));
+                            cash.add(new Contact(Integer.parseInt(arr[0]),arr[1],arr[2]));
 
                         }
                         else {
