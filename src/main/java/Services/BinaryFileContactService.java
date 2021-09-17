@@ -35,7 +35,8 @@ public class BinaryFileContactService extends InFileContactService {
             }
             catch (IOException | ClassNotFoundException e) {
 
-                throw new RuntimeException("IO Exception or Class not found in load function");
+                System.out.println("Cannot read the file");
+                return cash=new ArrayList<>();
 
 
             }

@@ -34,11 +34,16 @@ public class CsvFileContactService extends InFileContactService {
                             cash.add(new Contact(Integer.getInteger(arr[0]),arr[1],arr[2]));
 
                         }
+                        else {
+                            System.out.println("Wrong format of the file");
+                            return cash=new ArrayList<>();
+                        }
                     }
 
                 }
             catch(EOFException e)
             {
+                System.out.println("Cannot read the file");
                 return cash;
             }
             catch (IOException  e) {
@@ -59,7 +64,7 @@ public class CsvFileContactService extends InFileContactService {
 
         try (OutputStream os = getOutputStream()){
             PrintWriter pw=new PrintWriter(os);
-           
+
             contactList.stream().forEach(contact->pw.printf("%d;%s;%s\n",contact.getId(),contact.getName(),contact.getPhone()));
             pw.close();
             cash=contactList;
